@@ -1,0 +1,15 @@
+{
+    "usuarios": [
+        {
+            "nome": "Dhiogo",
+            "senha": "123",
+            "idade": 21,
+            "peso": 67.0,
+            "altura": 1.8,
+            "objetivo": 3,
+            "sexo": "M",
+            "atividade": 1.375,
+            "alimentos": []
+        }
+    ]
+}
