@@ -4,6 +4,7 @@ import cadastro
 import login
 import alimentos
 import metabolismo
+import relatorio
 
 
 def menu():
@@ -37,7 +38,8 @@ def menu_usuario(user):
         print("[1] Adicionar alimento")
         print("[2] Listar alimentos")
         print("[3] Ver metabolismo")
-        print("[4] Logout")
+        print("[4] Ver relatório")
+        print("[5] Logout")
 
         op = input("> ")
 
@@ -51,6 +53,9 @@ def menu_usuario(user):
             metabolismo.mostrar_metabolismo(user)
 
         elif op == "4":
+            relatorio.mostrar_relatorio(user)
+
+        elif op == "5":
             break
 
         else:
