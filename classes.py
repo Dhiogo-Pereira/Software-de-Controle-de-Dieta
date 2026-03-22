@@ -3,27 +3,13 @@
 class User:
     # Construtor
     def __init__(self, nome, senha, idade, peso, altura, objetivo, sexo, atividade):
-        if int(idade) <= 0:
-            raise ValueError("Idade inválida")
-
-        if float(peso) <= 0:
-            raise ValueError("Peso inválido")
-
-        if float(altura) <= 0:
-            raise ValueError("Altura inválida")
-
-        if int(objetivo) not in [1, 2, 3]:
-            raise ValueError("Objetivo inválido")
-
-        if sexo not in ["M", "F"]:
-            raise ValueError("Sexo inválido")
-
         self.__nome = nome
         self.__senha = senha
         self.__idade = int(idade)
         self.__peso = float(peso)
         self.__altura = float(altura)
         self.__objetivo = int(objetivo)
+        # Os dois abaixo são "extras" importantes para o cálculo correto do GET e TMB
         self.__sexo = sexo
         self.__atividade = float(atividade)
 
@@ -33,14 +19,8 @@ class User:
     def get_nome(self):
         return self.__nome
 
-    def get_alimentos(self):
-        return self.__alimentos
-
-    # Segurança
-    def verificar_senha(self, senha):
-        return self.__senha == senha
-
-    # TMB - Fórmula de Mifflin-St Jeor
+    # Cálculo de Metabolismo Basal (TMB)
+    # Fórmula de Mifflin-St Jeor
     # https://reference.medscape.com/calculator/846/mifflin-st-jeor-equation
     def calcular_tmb(self):
         altura_cm = self.__altura * 100
@@ -50,9 +30,20 @@ class User:
         else:
             return 10*self.__peso + 6.25*altura_cm - 5*self.__idade - 161
 
-    # GET - Peguei a formulinha que o gemini me deu, não achei informações em site algum
+    # Gasto Energético Total (GET)
     def calcular_get(self):
         return self.calcular_tmb() * self.__atividade
+
+    # Meta Calórica
+    def calcular_meta_calorica(self):
+        get = self.calcular_get()
+
+        if self.__objetivo == 1:  # perda
+            return get - 400
+        elif self.__objetivo == 2:  # manutenção
+            return get
+        else:  # ganho
+            return get + 400
 
     # Converter para JSON
     def to_dict(self):

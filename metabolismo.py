@@ -1,6 +1,7 @@
 # Sistema de cálculo metabólico
 
 from cadastro import carregar_dados
+from classes import User
 
 
 def mostrar_metabolismo(user):
@@ -11,9 +12,6 @@ def mostrar_metabolismo(user):
     for u in dados["usuarios"]:
         if u["nome"] == user["nome"]:
 
-            # Recria objeto
-            from classes import User
-
             usuario = User(
                 u["nome"], u["senha"], u["idade"], u["peso"],
                 u["altura"], u["objetivo"], u["sexo"], u["atividade"]
@@ -21,8 +19,10 @@ def mostrar_metabolismo(user):
 
             tmb = usuario.calcular_tmb()
             get = usuario.calcular_get()
+            meta = usuario.calcular_meta_calorica()
 
             print(f"TMB: {tmb:.2f} kcal")
             print(f"GET: {get:.2f} kcal")
+            print(f"Meta calórica: {meta:.2f} kcal")
 
             return

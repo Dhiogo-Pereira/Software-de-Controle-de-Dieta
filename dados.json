@@ -9,7 +9,28 @@
             "objetivo": 3,
             "sexo": "M",
             "atividade": 1.375,
-            "alimentos": []
+            "alimentos": [
+                {
+                    "nome": "Banana",
+                    "gramas": 12.0,
+                    "caloria": 13.0,
+                    "macronutrientes": {
+                        "proteina": 11.0,
+                        "carbo": 12.0,
+                        "gordura": 12.0
+                    }
+                },
+                {
+                    "nome": "Maça",
+                    "gramas": 20.0,
+                    "caloria": 79.5,
+                    "macronutrientes": {
+                        "proteina": 0.45,
+                        "carbo": 22.8,
+                        "gordura": 0.0
+                    }
+                }
+            ]
         }
     ]
 }
