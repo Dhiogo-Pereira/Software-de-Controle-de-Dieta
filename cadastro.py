@@ -66,7 +66,7 @@ def cadastrar_user():
     print("[5] Muito intenso")
 
     atividade_op = input("> ")
-    # Números tirados do gemini, não entendo de nutrição
+    # Números tirados do gemini, não entendo de nutrição, desculpa
     fatores = {
         "1": 1.2,
         "2": 1.375,
@@ -89,7 +89,6 @@ def cadastrar_user():
         objetivo = input("Digite 1, 2 ou 3: ")
 
     objetivo = int(objetivo)
-
 
     # Criar usuário
     user = classes.User(

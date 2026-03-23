@@ -43,7 +43,8 @@ def adicionar_alimento(user):
 def listar_alimentos(user):
     print("═══════ Seus alimentos ═══════")
 
-    # Recarrega os dados
+    # Pega os dados att do jsonzito, antes eu tava pegando por parâmetro, se n me engano, e tava
+    # dando pau
     dados = carregar_dados()
 
     for u in dados["usuarios"]:
