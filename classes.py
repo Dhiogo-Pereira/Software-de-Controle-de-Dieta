@@ -12,7 +12,6 @@ class User:
         # Os dois abaixo são "extras" importantes para o cálculo correto do GET e TMB
         self.__sexo = sexo
         self.__atividade = float(atividade)
-
         self.__alimentos = []
 
     # Getters
@@ -40,6 +39,7 @@ class User:
 
         if self.__objetivo == 1:  # perda
             return get - 400
+        # Número escolhido ao acaso, pra representar o quanto algm gostaria de ganhar ou perder
         elif self.__objetivo == 2:  # manutenção
             return get
         else:  # ganho

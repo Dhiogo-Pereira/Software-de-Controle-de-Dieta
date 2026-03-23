@@ -21,7 +21,9 @@ def menu():
 
         elif op == "2":
             user = login.fazer_login()
-
+            # A função verifica se existe a conta:
+            # - se existir, retorna o dicionário do usuário e permite acessar o menu logado
+            # - se não existir, retorna None, e o sistema volta ao menu principal (q é onde estamos)
             if user:
                 menu_usuario(user)
 

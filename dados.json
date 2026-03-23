@@ -42,6 +42,28 @@
             "sexo": "F",
             "atividade": 1.375,
             "alimentos": []
+        },
+        {
+            "nome": "Sarah",
+            "senha": "456",
+            "idade": 36,
+            "peso": 70.0,
+            "altura": 1.75,
+            "objetivo": 2,
+            "sexo": "F",
+            "atividade": 1.55,
+            "alimentos": [
+                {
+                    "nome": "Amendoim",
+                    "gramas": 12.0,
+                    "caloria": 13.0,
+                    "macronutrientes": {
+                        "proteina": 12.0,
+                        "carbo": 13.0,
+                        "gordura": 12.0
+                    }
+                }
+            ]
         }
     ]
 }
