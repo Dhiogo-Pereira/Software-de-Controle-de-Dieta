@@ -1,0 +1,1 @@
+pd deletar o dados.json, ele vai se criar sozinho de qualquer forma, isso é só resquicio de testes
