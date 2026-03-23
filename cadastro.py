@@ -11,6 +11,12 @@ def cadastrar_user():
     print("═══════ Cadastro de usuário ═══════")
 
     nome = input("Digite seu nome:\n> ")
+
+    # Verifica se já existe uma conta com o msm nome
+    if verifica_cadastro(nome):
+        print("Já possui cadastro")
+        return
+
     senha = input("Digite sua senha:\n> ")
 
     # Idade
@@ -19,8 +25,8 @@ def cadastrar_user():
             idade = int(input("Digite sua idade:\n> "))
             if idade <= 0:
                 print("Idade inválida")
-                continue
-            break
+                continue # Skipa o restante do código, e vai pra próxima iteração do loop
+            break # Só vai cair no break se o input for um número válido maior que 0
         except ValueError:
             print("Digite um número válido")
 
@@ -48,7 +54,7 @@ def cadastrar_user():
 
     # Sexo
     sexo = input("Sexo (M/F): ").upper()
-    while sexo not in ["M", "F"]:
+    while sexo not in ["M", "F"]: # Garantia pro user burrinho fzr oq eu quero
         sexo = input("Digite M ou F: ").upper()
 
     # Atividade
@@ -60,7 +66,7 @@ def cadastrar_user():
     print("[5] Muito intenso")
 
     atividade_op = input("> ")
-
+    # Números tirados do gemini, não entendo de nutrição
     fatores = {
         "1": 1.2,
         "2": 1.375,
@@ -84,10 +90,6 @@ def cadastrar_user():
 
     objetivo = int(objetivo)
 
-    # Verificar se já existe
-    if verifica_cadastro(nome):
-        print("Já possui cadastro")
-        return
 
     # Criar usuário
     user = classes.User(
@@ -128,12 +130,6 @@ def carregar_dados():
             for u in dados["usuarios"]:
                 if "alimentos" not in u:
                     u["alimentos"] = []
-
-                if "sexo" not in u:
-                    u["sexo"] = "M"
-
-                if "atividade" not in u:
-                    u["atividade"] = 1.2
 
             return dados
 

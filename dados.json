@@ -31,6 +31,17 @@
                     }
                 }
             ]
+        },
+        {
+            "nome": "Alice",
+            "senha": "321",
+            "idade": 18,
+            "peso": 68.0,
+            "altura": 1.6,
+            "objetivo": 3,
+            "sexo": "F",
+            "atividade": 1.375,
+            "alimentos": []
         }
     ]
 }
