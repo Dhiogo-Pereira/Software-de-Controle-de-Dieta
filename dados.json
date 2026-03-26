@@ -12,58 +12,49 @@
             "alimentos": [
                 {
                     "nome": "Banana",
-                    "gramas": 12.0,
-                    "caloria": 13.0,
-                    "macronutrientes": {
-                        "proteina": 11.0,
-                        "carbo": 12.0,
-                        "gordura": 12.0
-                    }
-                },
-                {
-                    "nome": "Maça",
-                    "gramas": 20.0,
-                    "caloria": 79.5,
-                    "macronutrientes": {
-                        "proteina": 0.45,
-                        "carbo": 22.8,
-                        "gordura": 0.0
-                    }
-                }
-            ]
-        },
-        {
-            "nome": "Alice",
-            "senha": "321",
-            "idade": 18,
-            "peso": 68.0,
-            "altura": 1.6,
-            "objetivo": 3,
-            "sexo": "F",
-            "atividade": 1.375,
-            "alimentos": []
-        },
-        {
-            "nome": "Sarah",
-            "senha": "456",
-            "idade": 36,
-            "peso": 70.0,
-            "altura": 1.75,
-            "objetivo": 2,
-            "sexo": "F",
-            "atividade": 1.55,
-            "alimentos": [
-                {
-                    "nome": "Amendoim",
-                    "gramas": 12.0,
+                    "quantidade": 12.0,
                     "caloria": 13.0,
                     "macronutrientes": {
                         "proteina": 12.0,
                         "carbo": 13.0,
                         "gordura": 12.0
                     }
+                },
+                {
+                    "nome": "Maça",
+                    "quantidade": 12.0,
+                    "caloria": 200.0,
+                    "macronutrientes": {
+                        "proteina": 12.0,
+                        "carbo": 12.0,
+                        "gordura": 12.0
+                    }
                 }
-            ]
+            ],
+            "meta_calorica": 200.0
+        },
+        {
+            "nome": "Amanda",
+            "senha": "432",
+            "idade": 20,
+            "peso": 62.0,
+            "altura": 1.68,
+            "objetivo": 2,
+            "sexo": "F",
+            "atividade": 1.55,
+            "alimentos": [
+                {
+                    "nome": "Banana",
+                    "quantidade": 12.0,
+                    "caloria": 15.0,
+                    "macronutrientes": {
+                        "proteina": 13.0,
+                        "carbo": 12.0,
+                        "gordura": 12.0
+                    }
+                }
+            ],
+            "meta_calorica": null
         }
     ]
 }

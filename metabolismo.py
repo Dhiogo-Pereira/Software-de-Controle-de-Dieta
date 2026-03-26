@@ -14,7 +14,8 @@ def mostrar_metabolismo(user):
 
             usuario = User(
                 u["nome"], u["senha"], u["idade"], u["peso"],
-                u["altura"], u["objetivo"], u["sexo"], u["atividade"]
+                u["altura"], u["objetivo"], u["sexo"], u["atividade"],
+                u.get("meta_calorica")
             )
 
             tmb = usuario.calcular_tmb()

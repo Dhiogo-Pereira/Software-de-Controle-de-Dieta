@@ -2,21 +2,32 @@
 
 class User:
     # Construtor
-    def __init__(self, nome, senha, idade, peso, altura, objetivo, sexo, atividade):
+    def __init__(self, nome, senha, idade, peso, altura, objetivo, sexo, atividade, meta_calorica):
+        # __ Encapsulamento
         self.__nome = nome
         self.__senha = senha
         self.__idade = int(idade)
         self.__peso = float(peso)
         self.__altura = float(altura)
         self.__objetivo = int(objetivo)
-        # Os dois abaixo são "extras" importantes para o cálculo correto do GET e TMB
+        # Meta calórica pode ser None, caso o objetivo do usuário seja apenas manter o corpinho, então o que aparecerá como sua meta, será apenas o que ele precisa
+        # "queimar" para não engordar
+        self.__meta_calorica = float(meta_calorica) if meta_calorica is not None else None
+        
+        # Os dois abaixo são importantes para o cálculo correto do GET e TMB
         self.__sexo = sexo
         self.__atividade = float(atividade)
-        self.__alimentos = []
+
+        # O usuário TEM um cardápio (composição)
+        self.__cardapio = Cardapio()
 
     # Getters
+
     def get_nome(self):
         return self.__nome
+
+    def get_cardapio(self):
+        return self.__cardapio
 
     # Cálculo de Metabolismo Basal (TMB)
     # Fórmula de Mifflin-St Jeor
@@ -33,19 +44,14 @@ class User:
     def calcular_get(self):
         return self.calcular_tmb() * self.__atividade
 
-    # Meta Calórica
+    # Meta
     def calcular_meta_calorica(self):
-        get = self.calcular_get()
+        if self.__objetivo == 2:  # manutenção
+            return self.calcular_get()
+            # o que foi comentado lá no início, return GET, pois é o mínimo necessário para não engordar
+            # (pelo oq eu entendi)
+        return self.__meta_calorica
 
-        if self.__objetivo == 1:  # perda
-            return get - 400
-        # Número escolhido ao acaso, pra representar o quanto algm gostaria de ganhar ou perder
-        elif self.__objetivo == 2:  # manutenção
-            return get
-        else:  # ganho
-            return get + 400
-
-    # Converter para JSON
     def to_dict(self):
         return {
             "nome": self.__nome,
@@ -56,5 +62,40 @@ class User:
             "objetivo": self.__objetivo,
             "sexo": self.__sexo,
             "atividade": self.__atividade,
-            "alimentos": self.__alimentos
+            "alimentos": self.__cardapio.to_list(),
+            "meta_calorica": self.__meta_calorica
         }
+
+class Alimento:
+    def __init__(self, nome, quantidade, caloria, macronutrientes):
+        self.nome = nome
+        self.quantidade = float(quantidade)
+        self.caloria = float(caloria)
+        self.macronutrientes = macronutrientes
+
+    def calcular_caloria_total(self):
+        return self.caloria
+
+    def to_dict(self):
+        return {
+            "nome": self.nome,
+            "quantidade": self.quantidade,
+            "caloria": self.caloria,
+            "macronutrientes": self.macronutrientes
+        }
+
+
+class Cardapio:
+    def __init__(self):
+        self.alimentos = []
+
+    def adicionar_alimento(self, alimento):
+        self.alimentos.append(alimento)
+
+    def calcular_total_calorias(self):
+        # Pega cada um dos alimentos salvado na lista pelo método acima, puxa a sua respectiva
+        # caloria pelo método puxado da classe alimento e soma geral :D
+        return sum(a.calcular_caloria_total() for a in self.alimentos)
+
+    def to_list(self):
+        return [a.to_dict() for a in self.alimentos]
