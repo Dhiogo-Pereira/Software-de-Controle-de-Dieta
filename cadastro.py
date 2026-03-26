@@ -89,10 +89,25 @@ def cadastrar_user():
         objetivo = input("Digite 1, 2 ou 3: ")
 
     objetivo = int(objetivo)
-
+    
+    # Meta
+    if objetivo == 2:
+        meta = None
+        print("Meta definida automaticamente como manutenção (GET)")
+    else:
+        while True:
+            try:
+                meta = float(input("Digite sua meta calórica diária:\n> "))
+                if meta <= 0:
+                    print("Meta inválida")
+                    continue
+                break
+            except ValueError:
+                print("Digite um número válido")
+    
     # Criar usuário
     user = classes.User(
-        nome, senha, idade, peso, altura, objetivo, sexo, atividade
+        nome, senha, idade, peso, altura, objetivo, sexo, atividade, meta
     )
 
     dados = carregar_dados()

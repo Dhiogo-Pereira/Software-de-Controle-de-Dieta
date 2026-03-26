@@ -1,2 +1,2 @@
 - pd deletar o dados.json, ele vai se criar sozinho de qualquer forma, isso é só resquicio de testes;
-- No arquivo JSON só fica salvo as informações, não os objetos, sempre que eu preciso eu instancio novamente no código, utilizando as informações guardadas no JSON
+- No arquivo JSON só fica salvo as informações, não os objetos, sempre que eu preciso eu instancio novamente no código, utilizando as informações guardadas no JSON.
